@@ -1,7 +1,7 @@
 import ppickle
 import json
 import pickle
-
+import collections
 
 filenames = {
     "ppickle": 'testdata/data.ppickle',
@@ -32,7 +32,10 @@ def load_test(data):
 def test():
     testdata1 = {'ar': 'عربى', 'en': 'english', 'jp': '日本語', 'ko': '한국어'}
     testdata2 = list(testdata1.items())
-    testdatas = [testdata1, testdata2]
+    testdata3 = collections.OrderedDict()  # fails
+    for k, v in testdata2:
+        testdata3[k] = v
+    testdatas = [testdata1, testdata2, testdata3]
     for testdata in testdatas:
         write_test(testdata)
         load_test(testdata)
