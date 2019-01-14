@@ -1,6 +1,11 @@
 # ppickle
 multilingual human-readable output pickler
 
+## Installation
+```
+pip install ppickle
+```
+
 ## How to use
 ```
 >>> data = {'ar': 'عربى', 'en': 'english', 'jp': '日本語', 'ko': '한국어'}
