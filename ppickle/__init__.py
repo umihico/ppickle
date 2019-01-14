@@ -9,7 +9,7 @@ class NotReverseEvaluable(Exception):
     pass
 
 
-def raise_if_NotReverseEvaluable(stringed_data):
+def raise_if_NotReverseEvaluable(data, stringed_data):
     try:
         ast.literal_eval(stringed_data)
     except Exception as e:
@@ -23,7 +23,7 @@ def dump(filename, data):
         f.write(pformat(data))
     """
     stringed_data = pformat(data)
-    raise_if_NotReverseEvaluable(stringed_data)
+    raise_if_NotReverseEvaluable(data, stringed_data)
     with codecs.open(filename, 'w', 'utf-8') as f:
         f.write(stringed_data)
 
