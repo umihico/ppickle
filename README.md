@@ -25,6 +25,7 @@ True
 
 ## Other builtin ways
 ```
+>>> data = {'ar': 'عربى', 'en': 'english', 'jp': '日本語', 'ko': '한국어'}
 >>> import pickle
 >>> with open('data.txt', 'wb') as f:
 >>>     pickle.dump(data, f)
@@ -36,9 +37,10 @@ $ python -m pickle data.txt # you need specific command to see origin look
 
 ```
 >>> data = [('ar', 'عربى'), ('en', 'english'), ('jp', '日本語'), ('ko', '한국어')]
->>> with open(filenames['json'], 'w', encoding='utf-8') as f:
+>>> import json
+>>> with open('data.txt', 'w', encoding='utf-8') as f:
 >>>     json.dump(data, f, ensure_ascii=False)
 $ cat data.txt
 [['ar', 'عربى'], ['en', 'english'], ['jp', '日本語'], ['ko', '한국어']]
-# pretty close by using ensure_ascii=False but inside tuples became lists
+# pretty close by using ensure_ascii=False option but inside tuples became lists
 ```
