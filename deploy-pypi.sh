@@ -16,5 +16,7 @@ rm -rf build
 rm -rf *.egg-info
 rm -rf ${project_name}-*.*.*
 version=$(cat version.txt)
+git reset HEAD version.txt
+git add version.txt
 git commit -m "version ${version} ${commit_msg}"
 git push
