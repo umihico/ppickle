@@ -30,12 +30,15 @@ True
 >>>     pickle.dump(data, f)
 $ cat data.txt
 {"ar": "\u0639\u0631\u0628\u0649", "en": "english", "jp": "\u65e5\u672c\u8a9e", "ko": "\ud55c\uad6d\uc5b4"}
+$ python -m pickle data.txt # you need specific command to see origin look
+{'ar': 'عربى', 'en': 'english', 'jp': '日本語', 'ko': '한국어'}
 ```
 
 ```
->>> import json
->>> with open('data.txt', 'w') as f:
->>>     json.dump(data, f)
+>>> data = [('ar', 'عربى'), ('en', 'english'), ('jp', '日本語'), ('ko', '한국어')]
+>>> with open(filenames['json'], 'w', encoding='utf-8') as f:
+>>>     json.dump(data, f, ensure_ascii=False)
 $ cat data.txt
-▒}q(XarqعربىqXenqXenglishqXjpqX 日本語qXkoqX    한국어u.
+[['ar', 'عربى'], ['en', 'english'], ['jp', '日本語'], ['ko', '한국어']]
+# pretty close by using ensure_ascii=False but inside tuples became lists
 ```
