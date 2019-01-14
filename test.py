@@ -14,8 +14,8 @@ def write_test(data):
     ppickle.dump(filenames['ppickle'], data)
     with open(filenames['pickle'], 'wb') as f:
         pickle.dump(data, f)
-    with open(filenames['json'], 'w') as f:
-        json.dump(data, f)
+    with open(filenames['json'], 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False)
 
 
 def load_test(data):
