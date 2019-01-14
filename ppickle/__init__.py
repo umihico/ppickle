@@ -5,6 +5,10 @@ import ast
 from pprint import pformat
 
 
+class NotReverseEvaluable(Exception):
+    pass
+
+
 def dump(filename, data):
     """
     with codecs.open(filename, 'w', 'utf-8') as f:
@@ -14,7 +18,8 @@ def dump(filename, data):
     try:
         ast.literal_eval(stringed_data)
     except Exception as e:
-        raise Exception("given data is not evaluable by ast.literal_eval")
+        raise NotReverseEvaluable(
+            f"pprint.pformat({type(data)}) is bad for ast.literal_eval()")
     with codecs.open(filename, 'w', 'utf-8') as f:
         f.write(stringed_data)
 
