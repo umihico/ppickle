@@ -34,14 +34,21 @@ def increment_version():
     return new_version
 
 
+def get_long_description():
+    with open('README.md') as f:
+        long_description = f.read()
+
+
 description = get_description()
 keywords = get_topic()
 version = increment_version()
-
+long_description = get_long_description()
 setup(
     name=REPONAME,
     version=version,
     description=description,
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url=f'https://github.com/{USERNAME}/{REPONAME}',
     author=USERNAME,
     author_email=f'{USERNAME}@users.noreply.github.com',
