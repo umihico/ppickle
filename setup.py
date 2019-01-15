@@ -35,7 +35,7 @@ def increment_version():
 
 
 def get_long_description():
-    with open('README.md') as f:
+    with open('README.md', 'r', encoding='utf-8') as f:
         long_description = f.read()
 
 
